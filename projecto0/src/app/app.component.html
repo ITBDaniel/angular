@@ -8,6 +8,6 @@
     [selected]="user.id === selectedUser?.id"
     (select)="onSelectUser($event)"></app-user>
   }
-  <app-tasks></app-tasks>
+  <app-tasks [selectedUser]="selectedUser!"></app-tasks>
 </main>
 

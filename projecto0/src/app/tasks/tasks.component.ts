@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { User } from '../user/user.model';
 
 @Component({
   imports: [],
@@ -31,7 +32,9 @@ export class TasksComponent {
     }
   ];
 
-  ///isSameUser(task.userId): boolean {
-    //return taskUserId === currentUserId;
-  //}
+  selectedUser = input.required<User | null>();
+
+  isSameUser(taskUserId: string): boolean {
+    return taskUserId === this.selectedUser()?.id;
+  }
 }
