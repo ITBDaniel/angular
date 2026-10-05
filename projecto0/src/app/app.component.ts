@@ -1,7 +1,9 @@
+import { DUMMY_USERS } from './dummy-users';
 import { Component, signal } from '@angular/core';
 import { HeaderComponent} from './header/header.component';
 import { UserComponent } from './user/user.component';
 import { TasksComponent } from './tasks/tasks.component';
+
 
 
 @Component({
@@ -11,5 +13,13 @@ import { TasksComponent } from './tasks/tasks.component';
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  protected readonly title = signal('projecto0');
+  users = DUMMY_USERS;
+  selectedUserId?: string;
+
+  get selectedUser(){
+    return this.users.find((user) => user.id === this.selectedUserId);
+  }
+  onSelectUser(id: string){
+    this.selectedUserId = id;
+  }
 }

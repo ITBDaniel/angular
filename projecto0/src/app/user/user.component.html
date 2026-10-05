@@ -1,4 +1,4 @@
-<button>
-  <img src="users/user-1.jpg" alt="User Icon" class="user-icon">
-  <p>{{ name }}</p>
+<button [class.active]="selected()" (click)="onSelectUser()">
+  <img [src]="imagePath" [alt]="user().name" class="user-icon">
+  <span>{{ user().name }}</span>
 </button>
